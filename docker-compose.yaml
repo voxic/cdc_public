@@ -41,7 +41,7 @@ services:
     image: debezium/debezium-ui
     depends_on: [debezium]
     ports:
-      - 8081:8080
+      - 8082:8080
 
   schema-registry:
     image: confluentinc/cp-schema-registry:5.5.3
