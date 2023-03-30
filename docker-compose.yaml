@@ -23,6 +23,8 @@ services:
 
   debezium:
     image: debezium/connect:2.1
+    container_name: debezium
+    hostname: connect
     environment:
       BOOTSTRAP_SERVERS: kafka:9092
       GROUP_ID: 1
@@ -38,8 +40,10 @@ services:
       - 8083:8083
 
   debezium-ui:
-    image: debezium/debezium-ui
+    image: debezium/debezium-ui:2.1
     depends_on: [debezium]
+    environment:
+      KAFKA_CONNECT_URIS: http://connect:8083
     ports:
       - 8082:8080
 
