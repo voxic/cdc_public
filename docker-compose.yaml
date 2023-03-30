@@ -39,6 +39,7 @@ services:
 
   debezium-ui:
     image: debezium/debezium-ui
+    depends_on: [debezium]
     ports:
       - 8081:8080
 
